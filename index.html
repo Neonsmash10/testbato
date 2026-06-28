@@ -51,8 +51,9 @@
       padding: 28px;
       color: white;
       background:
-        linear-gradient(180deg, rgba(6, 70, 83, 0.12), rgba(6, 70, 83, 0.9)),
-        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=82") center/cover;
+        linear-gradient(180deg, rgba(6, 70, 83, 0.1), rgba(6, 70, 83, 0.88)),
+        url("images/bateau-arriere.jpg") center 54% / cover no-repeat;
+      background-color: var(--sea-dark);
     }
 
     .nav {
@@ -240,13 +241,65 @@
       line-height: 1;
     }
 
+    .boat-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      gap: 12px;
+      min-height: 0;
+    }
+
     .boat-photo {
-      min-height: 420px;
+      position: relative;
+      min-height: 220px;
+      margin: 0;
       border-radius: 8px;
-      background:
-        linear-gradient(180deg, rgba(16, 35, 47, 0.02), rgba(16, 35, 47, 0.16)),
-        url("https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1100&q=82") center/cover;
+      overflow: hidden;
+      background: #dbe8ec;
       box-shadow: var(--shadow);
+    }
+
+    .boat-photo.main {
+      grid-column: 1 / -1;
+      aspect-ratio: 4 / 3;
+      min-height: 0;
+    }
+
+    .boat-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .boat-photo:hover img {
+      transform: scale(1.035);
+    }
+
+    .boat-photo.main img {
+      object-position: 50% 50%;
+    }
+
+    .boat-photo.cockpit img {
+      object-position: 48% 46%;
+    }
+
+    .boat-photo.back img {
+      object-position: 48% 58%;
+    }
+
+    .photo-label {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      background: rgba(6, 70, 83, 0.84);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 800;
     }
 
     .availability {
@@ -513,6 +566,29 @@
         min-height: 260px;
       }
 
+      .boat-gallery {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .boat-photo.main {
+        grid-column: auto;
+        aspect-ratio: 4 / 3;
+        min-height: 0;
+      }
+
+      .boat-photo.main img {
+        object-position: 50% 50%;
+      }
+
+      .boat-photo.cockpit img {
+        object-position: 50% 42%;
+      }
+
+      .boat-photo.back img {
+        object-position: 48% 54%;
+      }
+
       .calendar-toolbar {
         align-items: center;
         flex-direction: row;
@@ -623,13 +699,21 @@
       .notice {
         padding: 14px;
       }
+
+      .boat-photo.main {
+        min-height: 0;
+      }
+
+      .boat-photo {
+        min-height: 220px;
+      }
     }
   </style>
 </head>
 <body>
   <header class="hero" id="accueil">
     <nav class="nav" aria-label="Navigation principale">
-      <a class="brand" href="#accueil">Azur Boat</a>
+      <a class="brand" href="#accueil">Le Natasha</a>
       <div class="nav-links">
         <a href="#bateau">Le bateau</a>
         <a href="#calendrier">Disponibilites</a>
@@ -678,7 +762,20 @@
             <span>Permis bateau obligatoire pour louer et piloter le bateau.</span>
           </div>
         </div>
-        <div class="boat-photo" role="img" aria-label="Bateau au port"></div>
+        <div class="boat-gallery" aria-label="Photos du bateau">
+          <figure class="boat-photo main">
+            <img src="images/bateau-avant.jpg" alt="Vue exterieure du bateau Jeanneau sur remorque">
+            <figcaption class="photo-label">Vue exterieure</figcaption>
+          </figure>
+          <figure class="boat-photo cockpit">
+            <img src="images/bateau-poste.png" alt="Poste de pilotage et cockpit du bateau">
+            <figcaption class="photo-label">Poste de pilotage</figcaption>
+          </figure>
+          <figure class="boat-photo back">
+            <img src="images/bateau-arriere.jpg" alt="Arriere du bateau avec moteur et echelle">
+            <figcaption class="photo-label">Moteur et echelle</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
