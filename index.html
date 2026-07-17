@@ -227,6 +227,19 @@
       font-weight: 800;
     }
 
+    .insurance-note {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 14px;
+      padding: 16px;
+      border: 2px solid var(--sea);
+      border-radius: 8px;
+      background: #e3f8ec;
+      color: #136f3f;
+      font-weight: 800;
+    }
+
     .permit-check {
       display: inline-flex;
       align-items: center;
@@ -237,6 +250,20 @@
       border-radius: 6px;
       background: var(--sun);
       color: #20140a;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .insurance-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      background: var(--sea);
+      color: white;
       font-size: 1.1rem;
       line-height: 1;
     }
@@ -496,6 +523,23 @@
       color: rgba(255, 255, 255, 0.86);
     }
 
+    .fishing-slots {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .fishing-slot {
+      padding: 16px;
+      border: 2px solid #8bd7dc;
+      border-radius: 8px;
+      background: #e8f7f9;
+      color: #064653;
+      font-weight: 800;
+      text-align: center;
+    }
+
     footer {
       padding: 22px 28px;
       background: #071e26;
@@ -644,6 +688,10 @@
         align-items: flex-start;
         font-size: 0.95rem;
       }
+
+      .fishing-slots {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 420px) {
@@ -706,6 +754,10 @@
 
       .boat-photo {
         min-height: 220px;
+      }
+
+      .fishing-slots {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -773,6 +825,15 @@
           <div class="permit-note">
             <span class="permit-check" aria-hidden="true">✓</span>
             <span>Permis bateau obligatoire pour louer et piloter le bateau.</span>
+          </div>
+          <div class="insurance-note">
+            <span class="insurance-check" aria-hidden="true">✓</span>
+            <span>Le bateau est assuré tous risques.</span>
+          </div>
+          <p style="margin-top: 24px; font-weight: 700; color: var(--sea); font-size: 0.9rem; text-transform: uppercase;">Créneaux spéciaux pêcheurs :</p>
+          <div class="fishing-slots">
+            <div class="fishing-slot">🌅 5h40 - 9h30</div>
+            <div class="fishing-slot">🌙 18h30 - 1h</div>
           </div>
         </div>
         <div class="boat-gallery" aria-label="Photos du bateau">
